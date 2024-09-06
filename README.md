@@ -4,11 +4,11 @@
 
 ## Introduction
 
-In this LAB, we will work through a comprehensive deep learning workflow using a Recurrent Neural Network (RNN) to predict stock prices. We will use historical stock price data from **Apple (AAPL)**, downloaded from Yahoo Finance using the `yfinance` library. Our goal is to predict future stock prices based on past data, comparing different types of recurrent neural networks, including **LSTM** (Long Short-Term Memory).
+In this LAB, you will go through the steps of building two types of Recurrent Neural Networks (RNNs) to predict stock prices. You will compare a simple RNN model with an **LSTM** (Long Short-Term Memory) model, understand the differences, and evaluate their performance. Finally, you will perform hyperparameter tuning using **GridSearch** to optimize your model.
 
 ---
 
-### Setup Instructions
+## Setup Instructions
 
 1. **Clone the repository**:
     ```bash
@@ -28,82 +28,144 @@ In this LAB, we will work through a comprehensive deep learning workflow using a
 
 ---
 
-### Iteration 1: Data Load
+## Iteration 1: Data Load
 
-In this iteration, we will load **Apple's historical stock price data** using the `yfinance` library and store it in a pandas DataFrame.
+We will start by loading the historical stock price data for **Apple (AAPL)** from Yahoo Finance using the `yfinance` library. The data will cover the period from **January 2010** to **January 2022**.
 
-- Download the stock price data from Yahoo Finance for Apple (AAPL) from January 2010 to January 2022.
-- Load the data into a pandas DataFrame and display the first few rows to understand its structure.
-- Use the 'Close' column (closing price) for the analysis.
+- Download the data and load it into a pandas DataFrame.
+- Focus on the **'Close'** column, as we are interested in predicting the closing price of the stock.
+- Display the first few rows to understand the data structure.
 
----
-
-### Iteration 2: Explore Data
-
-Visualize the dataset to understand the price trends over time.
-
-- Plot the stock prices over time to get a sense of the trend.
-- Optionally, compute basic statistics such as mean and standard deviation of the stock prices.
+#### Tasks:
+1. Use the `yfinance` library to download the data.
+2. Load it into a pandas DataFrame and inspect the first few rows.
 
 ---
 
-### Iteration 3: Feature Selection and Preprocessing
+## Iteration 2: Explore Data
 
-#### 3.0 Feature Selection
+Before jumping into model building, it's important to explore and visualize the data. This helps to understand trends and patterns over time.
 
-Use the stock closing prices as the main feature for time-series prediction.
+- Plot the closing prices over time to observe the stock price fluctuations.
+- Optionally, compute basic statistics such as the mean and standard deviation of the stock prices.
 
-#### 3.1 Create Time Sequences
-
-Convert the dataset into sequences of past data. For this lab, we will use the previous 60 days of prices to predict the next day's price.
-
-- Create a function to generate sequences of length `T` (e.g., 60 days) and their corresponding target value.
-
-#### 3.2 Feature Normalization
-
-Normalize the feature set to ensure that each feature contributes equally during the training process.
+#### Tasks:
+1. Create a line plot of the **'Close'** prices to visualize the trend.
+2. (Optional) Calculate basic statistics such as the mean and standard deviation of the closing prices.
 
 ---
 
-### Iteration 4: Build Recurrent Neural Network Models
+## Iteration 3: Feature Selection and Preprocessing
 
-#### 4.1: Build a Simple RNN
+### 3.0 Feature Selection
 
-Define and compile a simple RNN model to predict future stock prices.
+For this task, we will use the **'Close'** column as our feature for time-series prediction.
 
-#### 4.2: Build an LSTM Model
+### 3.1 Create Time Sequences
 
-Define and compile a more advanced LSTM model.
+Since RNN models require sequential data, we need to transform the dataset into sequences. Each sequence will consist of a **window of 60 days** of stock prices, and the target variable will be the stock price on the **61st day**.
 
----
+- Create a function that takes the closing prices and generates sequences of a given length.
 
-### Iteration 5: Train Both Recurrent Neural Networks
+#### Tasks:
+1. Write a function that takes the dataset and creates sequences of past stock prices.
+2. Make sure that each sequence has a target value, which will be the stock price of the day following the sequence.
 
-Train both models using the same parameters and dataset.
+### 3.2 Feature Normalization
 
----
+Neural networks perform better when input data is normalized. We will normalize the stock prices using **Min-Max Scaling**, scaling values between 0 and 1.
 
-### Iteration 6: Evaluate Both Models
-
-Evaluate both models using the test dataset and calculate metrics like Mean Squared Error (MSE) and Mean Absolute Error (MAE).
-
----
-
-### Iteration 7: Visualize Training History
-
-Plot and compare the training history of both models.
+#### Tasks:
+1. Apply Min-Max Scaling to normalize the data.
+2. Ensure the scaling is applied after creating the sequences.
 
 ---
 
-### Iteration 8: Hyperparameter Tuning
+## Iteration 4: Build Recurrent Neural Network Models
 
-Try different hyperparameters such as the number of layers, units per layer, and dropout rates to optimize both models.
+Now that we have preprocessed the data, we will build two different models: a basic RNN and a more advanced LSTM model. The goal is to compare the performance of these two approaches.
+
+### 4.1 Build a Simple RNN
+
+You will first create a basic **RNN** model using the **Keras** library. This model will contain:
+- One SimpleRNN layer, followed by a Dense layer to output the predicted stock price.
+
+#### Tasks:
+1. Define a simple RNN model.
+2. Compile the model using **Adam** optimizer and **mean squared error (MSE)** loss function.
+
+### 4.2 Build an LSTM Model
+
+Next, you will create an **LSTM** model, which is a more advanced type of RNN designed to handle long-term dependencies.
+
+#### Tasks:
+1. Define an LSTM model.
+2. Compile the model using the same optimizer and loss function as the RNN.
 
 ---
 
-### Iteration 9: Final Model Evaluation
+## Iteration 5: Train Both Recurrent Neural Networks
 
-Evaluate the final models and compare their performance after tuning.
+You will now train both models using the same training data and parameters to keep the comparison fair.
+
+- Use a **batch size** of 32 and train for **10 epochs**.
+
+#### Tasks:
+1. Train the RNN model.
+2. Train the LSTM model.
+3. Observe the training loss for both models to understand their learning behavior.
+
+---
+
+## Iteration 6: Evaluate Both Models
+
+After training, it's important to evaluate the models on a test set to understand their performance.
+
+- Calculate key metrics like **Mean Squared Error (MSE)** and **Mean Absolute Error (MAE)** to compare the prediction accuracy of both models.
+
+#### Tasks:
+1. Use the trained models to predict on the test data.
+2. Calculate the **MSE** and **MAE** for both models.
+3. Compare the evaluation metrics to determine which model performs better.
+
+---
+
+## Iteration 7: Visualize Training History
+
+Visualizing the training process can help you see how well each model learned from the data. You will plot the loss curves for both models to understand their convergence behavior.
+
+#### Tasks:
+1. Plot the loss curves for both the RNN and LSTM models.
+2. Compare the loss curves to see how quickly or slowly each model converged during training.
+
+---
+
+## Iteration 8: Hyperparameter Tuning with GridSearch
+
+At this point, you will perform **hyperparameter tuning** to find the optimal set of parameters for your models. GridSearch is a systematic way to search for the best combination of hyperparameters.
+
+#### GridSearch Parameters to Tune:
+- Number of RNN/LSTM units (e.g., 50, 100)
+- Batch size (e.g., 32, 64)
+- Number of epochs (e.g., 10, 20)
+- Learning rate (e.g., 0.001, 0.0001)
+
+You will use **GridSearch** to evaluate different combinations of these parameters to find the best performing model.
+
+#### Tasks:
+1. Set up a GridSearch to try different combinations of hyperparameters.
+2. Run GridSearch for both the RNN and LSTM models.
+3. Identify the best set of hyperparameters and retrain the models with them.
+
+---
+
+## Iteration 9: Final Model Evaluation
+
+After hyperparameter tuning, evaluate the models again with the test data using the optimal hyperparameters you found. Compare the results with the previous models to see if tuning improved performance.
+
+#### Tasks:
+1. Retrain both models using the optimal hyperparameters.
+2. Evaluate the models again and compare the performance improvements after tuning.
 
 ---
 
@@ -111,11 +173,11 @@ Evaluate the final models and compare their performance after tuning.
 
 ### Compare Results with Other Models
 
-Compare the performance of the RNN/LSTM models with traditional methods like ARIMA or Prophet.
+To extend your analysis, you can compare the results of your RNN/LSTM models with traditional statistical methods like **ARIMA** or **Prophet**. This comparison will help you understand how machine learning models differ from classical time-series forecasting methods.
 
 ---
 
-### Submission
+## Submission
 
 Once you have completed your analysis and visualizations, push your Jupyter notebook to your GitHub repository.
 
