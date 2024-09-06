@@ -178,11 +178,23 @@ To extend your analysis, you can compare the results of your RNN/LSTM models wit
 ---
 
 ## Submission
+Once you have completed your analysis and visualizations, push your Jupyter notebook to your forked GitHub repository. Ensure that your final submission includes narratives explaining your visualizations and insights.
 
-Once you have completed your analysis and visualizations, push your Jupyter notebook to your GitHub repository.
 
 ```bash
 $ git add .
 $ git commit -m "done"
 $ git push origin main
 ```
+
+Then create a Pull Request!!
+
+## Additional Resources
+
+- [ ]()
+- [ ](/)
+- [ ]()
+- [ ]().
+- [ ]().
+
+![happy_coding](https://user-images.githubusercontent.com/970858/63899010-c23fc480-c9ea-11e9-84a2-542907e42362.png)
