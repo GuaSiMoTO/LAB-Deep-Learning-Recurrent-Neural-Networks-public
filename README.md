@@ -83,9 +83,8 @@ Neural networks perform better when input data is normalized. We will normalize 
 
 ## Iteration 4: Build Recurrent Neural Network Models
 
-Now that we have preprocessed the data, we will build two different models: a basic RNN and a more advanced LSTM model. The goal is to compare the performance of these two approaches.
+Now that we have preprocessed the data, we will build a basic RNN model.
 
-### 4.1 Build a Simple RNN
 
 You will first create a basic **RNN** model using the **Keras** library. This model will contain:
 - One SimpleRNN layer, followed by a Dense layer to output the predicted stock price.
@@ -93,14 +92,6 @@ You will first create a basic **RNN** model using the **Keras** library. This mo
 #### Tasks:
 1. Define a simple RNN model.
 2. Compile the model using **Adam** optimizer and **mean squared error (MSE)** loss function.
-
-### 4.2 Build an LSTM Model
-
-Next, you will create an **LSTM** model, which is a more advanced type of RNN designed to handle long-term dependencies.
-
-#### Tasks:
-1. Define an LSTM model.
-2. Compile the model using the same optimizer and loss function as the RNN.
 
 ---
 
@@ -112,21 +103,19 @@ You will now train both models using the same training data and parameters to ke
 
 #### Tasks:
 1. Train the RNN model.
-2. Train the LSTM model.
-3. Observe the training loss for both models to understand their learning behavior.
+2. Observe the training loss in the model to understand their learning behavior.
 
 ---
 
-## Iteration 6: Evaluate Both Models
+## Iteration 6: Evaluate Model
 
-After training, it's important to evaluate the models on a test set to understand their performance.
+After training, it's important to evaluate the model on a test set to understand their performance.
 
-- Calculate key metrics like **Mean Squared Error (MSE)** and **Mean Absolute Error (MAE)** to compare the prediction accuracy of both models.
+- Calculate key metrics like **Mean Squared Error (MSE)** and **Mean Absolute Error (MAE)** to compare the prediction accuracy of the model.
 
 #### Tasks:
-1. Use the trained models to predict on the test data.
-2. Calculate the **MSE** and **MAE** for both models.
-3. Compare the evaluation metrics to determine which model performs better.
+1. Use the trained model to predict on the test data.
+2. Calculate the **MSE** and **MAE**.
 
 ---
 
@@ -135,17 +124,16 @@ After training, it's important to evaluate the models on a test set to understan
 Visualizing the training process can help you see how well each model learned from the data. You will plot the loss curves for both models to understand their convergence behavior.
 
 #### Tasks:
-1. Plot the loss curves for both the RNN and LSTM models.
-2. Compare the loss curves to see how quickly or slowly each model converged during training.
+1. Plot the loss curves.
 
 ---
 
 ## Iteration 8: Hyperparameter Tuning with GridSearch
 
-At this point, you will perform **hyperparameter tuning** to find the optimal set of parameters for your models. GridSearch is a systematic way to search for the best combination of hyperparameters.
+At this point, you will perform **hyperparameter tuning** to find the optimal set of parameters for your model. GridSearch is a systematic way to search for the best combination of hyperparameters.
 
 #### GridSearch Parameters to Tune:
-- Number of RNN/LSTM units (e.g., 50, 100)
+- Number of RNN units (e.g., 50, 100)
 - Batch size (e.g., 32, 64)
 - Number of epochs (e.g., 10, 20)
 - Learning rate (e.g., 0.001, 0.0001)
@@ -164,16 +152,8 @@ You will use **GridSearch** to evaluate different combinations of these paramete
 After hyperparameter tuning, evaluate the models again with the test data using the optimal hyperparameters you found. Compare the results with the previous models to see if tuning improved performance.
 
 #### Tasks:
-1. Retrain both models using the optimal hyperparameters.
-2. Evaluate the models again and compare the performance improvements after tuning.
-
----
-
-## Bonus
-
-### Compare Results with Other Models
-
-To extend your analysis, you can compare the results of your RNN/LSTM models with traditional statistical methods like **ARIMA** or **Prophet**. This comparison will help you understand how machine learning models differ from classical time-series forecasting methods.
+1. Retrain the model using the optimal hyperparameters.
+2. Evaluate the model again and compare the performance improvements after tuning.
 
 ---
 
@@ -192,7 +172,7 @@ Then create a Pull Request!!
 ## Additional Resources
 
 - [ ]()
-- [ ](/)
+- [ ]()
 - [ ]()
 - [ ]().
 - [ ]().
