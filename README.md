@@ -83,15 +83,21 @@ Neural networks perform better when input data is normalized. We will normalize 
 
 ## Iteration 4: Build Recurrent Neural Network Models
 
-Now that we have preprocessed the data, we will build a basic RNN model.
+In this section, you will build two types of recurrent neural networks:
 
+- A SimpleRNN model.
+- A GRU (Gated Recurrent Unit) model.
 
-You will first create a basic **RNN** model using the **Keras** library. This model will contain:
-- One SimpleRNN layer, followed by a Dense layer to output the predicted stock price.
+#### **Tasks**:
 
-#### Tasks:
-1. Define a simple RNN model.
-2. Compile the model using **Adam** optimizer and **mean squared error (MSE)** loss function.
+1. Define the **SimpleRNN** model with the following specifications:
+   - One recurrent layer with 100 units and **ReLU** activation.
+   - One Dense layer with 1 unit for the output.
+2. Define the **GRU** model with the same specifications, but replace the SimpleRNN layer with a GRU layer.
+3. Compile both models using:
+   - Optimizer: **Adam**.
+   - Loss: **Mean Squared Error (MSE)**.
+4. Display the summary of each model to understand their architectures.
 
 ---
 
@@ -128,7 +134,9 @@ Visualizing the training process can help you see how well each model learned fr
 
 ---
 
-## Iteration 8: Hyperparameter Tuning with GridSearch
+## Bonus
+
+### Hyperparameter Tuning with GridSearch
 
 At this point, you will perform **hyperparameter tuning** to find the optimal set of parameters for your model. GridSearch is a systematic way to search for the best combination of hyperparameters.
 
@@ -142,12 +150,12 @@ You will use **GridSearch** to evaluate different combinations of these paramete
 
 #### Tasks:
 1. Set up a GridSearch to try different combinations of hyperparameters.
-2. Run GridSearch for both the RNN and LSTM models.
+2. Run GridSearch for both the RNN and GRU models.
 3. Identify the best set of hyperparameters and retrain the models with them.
 
 ---
 
-## Iteration 9: Final Model Evaluation
+### Final Model Evaluation
 
 After hyperparameter tuning, evaluate the models again with the test data using the optimal hyperparameters you found. Compare the results with the previous models to see if tuning improved performance.
 
