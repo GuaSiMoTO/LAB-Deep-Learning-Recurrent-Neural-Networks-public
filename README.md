@@ -134,6 +134,23 @@ Visualizing the training process can help you see how well each model learned fr
 
 ---
 
+## Iteration 8: Predict the Closing Price for January 3, 2022
+
+Now that you have trained your models, let’s test their ability to predict the closing price for a specific date: **January 3, 2022**.
+
+> **Note** that the **stock market is closed on January 1 and 2, 2022**, as these dates fall on a weekend.
+
+- Use the last **60 days of data** leading up to December 31, 2021, as input to your model.
+- Predict the closing price for January 3, 2022.
+- Compare the predicted value with the actual closing price (if available in your dataset) or analyze its plausibility.
+
+#### Tasks:
+1. Extract the last 60 days of stock prices from the dataset ending on December 31, 2021.
+2. Use your trained models (RNN and GRU) to predict the closing price for January 3, 2022.
+3. Record and discuss the predicted value in the notebook.
+
+> **Note**: Replace `rnn_model` with your trained model (e.g., GRU or SimpleRNN) and `scaler` with the scaler object used during preprocessing.
+
 ## Bonus
 
 ### Hyperparameter Tuning with GridSearch
